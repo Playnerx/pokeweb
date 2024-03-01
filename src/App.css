@@ -18,6 +18,9 @@ p {
     margin-top: 0;
     margin-bottom: 0;
 }
+
+/* HEADER */
+
 .fullNavbar {
     background-color: red;
     width: 100%;
@@ -35,7 +38,32 @@ p {
 .centralNavbar {
     margin: 0 auto;
 }
-.userImage {
+.iconImage {
     width: 30px;
     height: 30px;
+}
+.marginNav {
+    margin-right: 80px !important;
+}
+.navMenu {
+    display: flex;
+}
+
+.navMenu a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.navMenu:hover {
+    background: linear-gradient(to bottom, #FFFFFF00 0%, #FDB426 100%);
+}
+.activeMenu {
+    background: linear-gradient(to bottom, #FFFFFF00 0%, #FDB426 100%);
+}
+
+/* FOOTER  */
+
+.fullFooter {
+
 }

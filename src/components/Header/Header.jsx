@@ -1,5 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import userAvatar from "../assets/img/user.png";
+import homeIcon from "../assets/img/house-solid.png";
+import pokeIcon from "../assets/img/pokeball.bafce1b0.jpg";
+import buildIcon from "../assets/img/pen-to-square-regular.png";
 import '../../App.css';
 
 // Componente separato per il menu dropdown
@@ -45,11 +48,11 @@ export default function Header() {
         {/* Menu hamburger */}
         <div className="md:hidden" ref={dropdownRef}>
           <button onClick={toggleMenu} className="text-white focus:outline-none">
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {menuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 6l12 12M6 18L18 6" />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m0 6h-16" />
               )}
             </svg>
           </button>
@@ -62,16 +65,31 @@ export default function Header() {
         {/* Menu centrato */}
         <div className='centralNavbar hidden md:block'>
           <ul className='flex justify-between'>
-            <li className='mx-3 font-bold text-white'><a href="#">Home</a></li>
-            <li className='mx-3 font-bold text-white'><a href="#">Pokédex</a></li>
-            <li className='mx-3 font-bold text-white'><a href="#">Teams</a></li>
+            <li className='navMenu activeMenu marginNav font-bold text-white'>
+              <a href='#' className='h-[98px] items-center px-9'>
+                <p><img className='iconImage mx-auto mb-2' src={homeIcon} alt="Home Icon" /></p>
+                <p>Home</p>
+              </a>
+            </li>
+            <li className='navMenu marginNav font-bold text-white'>
+              <a href='#' className='h-[98px] items-center px-9'>
+                <p><img className='iconImage mx-auto mb-2' src={pokeIcon} alt="Poké Icon" /></p>
+                <p>Pokédex</p>
+              </a>
+            </li>
+            <li className='navMenu font-bold text-white'>
+              <a href='#' className='h-[98px] items-center px-9'>
+                <p><img className='iconImage mx-auto mb-2' src={buildIcon} alt="Build Icon" /></p>
+                <p>Teams</p>
+              </a>
+            </li>
           </ul>
         </div>
 
-        {/* Menu finale */}
+        {/* Menu LogIn */}
         <div className='endNavbar hidden md:block'>
           <a href="#">
-            <img className='userImage' src={userAvatar} alt="User Avatar" />
+            <img className='iconImage' src={userAvatar} alt="User Avatar" />
           </a>
         </div>
       </div>
