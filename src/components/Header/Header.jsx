@@ -57,7 +57,7 @@ export default function Header() {
             </svg>
           </button>
           {/* Dropdown del menu */}
-          <div className={`${menuOpen ? 'h-[160px]' : 'h-0'} overflow-hidden flex justify-center items-center absolute left-0 w-full bg-white duration-500 mt-[35px] shadow-[0_5px_10px_rgba(0,0,0,.25)]`}>
+          <div className={`${menuOpen ? 'h-[160px]' : 'h-0'} overflow-hidden flex justify-center items-center absolute left-0 w-full bg-white duration-500 mt-[28px] shadow-[0_5px_10px_rgba(0,0,0,.25)]`}>
             <DropdownMenu />
           </div>
         </div>
