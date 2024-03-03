@@ -22,7 +22,7 @@ p {
 /* HEADER */
 
 .fullNavbar {
-    background-color: red;
+    background-color: #B70909;
     width: 100%;
     height: 100px;
 }
@@ -43,7 +43,7 @@ p {
     height: 30px;
 }
 .marginNav {
-    margin-right: 80px !important;
+    margin-right: 60px !important;
 }
 .navMenu {
     display: flex;
@@ -65,5 +65,17 @@ p {
 /* FOOTER  */
 
 .fullFooter {
-
+    background-color: black;
+    width: 100%;
+    padding-bottom: 50px;
+}
+.footer {
+    width: 1400px;
+    height: 100%;
+    margin: 0 auto;
+    /* background-color: teal; */
+}
+.footerMenu {
+    width: 350px;
+    /* background-color: #FDB426; */
 }
