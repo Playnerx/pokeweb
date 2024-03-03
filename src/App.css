@@ -79,3 +79,9 @@ p {
     width: 350px;
     /* background-color: #FDB426; */
 }
+
+/* HOME */
+
+.wallpaperHome {
+    background-image: url(components/assets/img/pokemonlandscape2.jpg);
+}

@@ -46,7 +46,7 @@ export default function Header() {
         </div>
 
         {/* Menu hamburger */}
-        <div className="md:hidden" ref={dropdownRef}>
+        <div className="lg:hidden" ref={dropdownRef}>
           <button onClick={toggleMenu} className="text-white focus:outline-none">
             <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {menuOpen ? (
@@ -63,22 +63,22 @@ export default function Header() {
         </div>
 
         {/* Menu centrato */}
-        <div className='centralNavbar hidden md:block'>
+        <div className='centralNavbar hidden lg:block'>
           <ul className='flex justify-between'>
             <li className='navMenu activeMenu marginNav font-bold text-white'>
-              <a href='#' className='h-[98px] items-center px-9'>
+              <a href='#' className='h-[98px] items-center px-7'>
                 <p><img className='iconImage mx-auto mb-2' src={homeIcon} alt="Home Icon" /></p>
                 <p>Home</p>
               </a>
             </li>
             <li className='navMenu marginNav font-bold text-white'>
-              <a href='#' className='h-[98px] items-center px-9'>
+              <a href='#' className='h-[98px] items-center px-7'>
                 <p><img className='iconImage mx-auto mb-2' src={pokeIcon} alt="Poké Icon" /></p>
                 <p>Pokédex</p>
               </a>
             </li>
             <li className='navMenu font-bold text-white'>
-              <a href='#' className='h-[98px] items-center px-9'>
+              <a href='#' className='h-[98px] items-center px-7'>
                 <p><img className='iconImage mx-auto mb-2' src={buildIcon} alt="Build Icon" /></p>
                 <p>Teams</p>
               </a>
@@ -87,7 +87,7 @@ export default function Header() {
         </div>
 
         {/* Menu LogIn */}
-        <div className='endNavbar hidden md:block'>
+        <div className='endNavbar hidden lg:block'>
           <a href="#">
             <img className='iconImage' src={userAvatar} alt="User Avatar" />
           </a>

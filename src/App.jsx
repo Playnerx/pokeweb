@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import './App.css'
 import Home from "./components/Home";
 import AuthLayout from "./components/Layouts/AuthLayout";
+import PokemonDetails from "./components/utilities/PokemonDetails";
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
         <Route path="/register" element={<>Register</>}></Route>
         <Route path="/" element={<AuthLayout />}>
           <Route index element={<Home />} />
-          <Route path="pokemon" element={<>Pokémon</>} />
+          <Route path="/pokemon/:id" Component={PokemonDetails}></Route>
         </Route>
       </Routes>
     </>
