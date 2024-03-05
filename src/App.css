@@ -85,3 +85,8 @@ p {
 .wallpaperHome {
     background-image: url(components/assets/img/pokemonlandscape2.jpg);
 }
+
+.topCard {
+    background-image: url(components/assets/img/Card.jpg);
+    background-repeat: no-repeat;
+}

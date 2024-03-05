@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const RandomDescription = () => {
   const [randomDescription, setRandomDescription] = useState('');
@@ -31,7 +31,7 @@ const RandomDescription = () => {
 
   return (
     <div>
-      <p className='italic'>"{randomDescription}"</p>
+      <p className='italic'>{`"${randomDescription && randomDescription}"`}</p>
     </div>
   );
 };

@@ -1,14 +1,17 @@
-import React from 'react';
+import Card from './utilities/Card';
+import Team from './utilities/Team';
 import RandomDescription from './utilities/RandomDescription';
 
 export default function Home() {
-  const speciesUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
 
   return (
     <div className="home">
       <div className="bg-white w-100 h-[120px] flex justify-center items-center">
         <p className="text-center text-[30px] font-semibold">Bentornato, Utente!</p>
       </div>
+
+      {/* Random Home */}
+
       <div className="relative w-100 h-[160px] flex justify-center items-center wallpaperHome bg-center bg-cover">
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="text-white text-center font-semibold relative">
@@ -17,6 +20,37 @@ export default function Home() {
           <p className="mt-4">Di che Pokémon sto parlando?</p>
         </div>
       </div>
+      <div className='w-full flex justify-center'>
+        <div className='w-[1000px] h-[100%] mx-auto'>
+
+          {/* Pokédex Home */}
+
+          <div className='homePokedex mt-10 mb-10'>
+            <p className='text-[20px] font-semibold mb-4 text-center'>Dai un'occhiata a questi Pokémon...</p>
+            <div className='flex flex-wrap justify-center lg:justify-between'>
+              {Array(4).fill(null).map((el, index) => (
+                <div className="w-full lg:w-1/2 xl:w-1/4 px-2 mb-4" key={index}> {/* Imposta la larghezza della card */}
+                  <Card></Card>
+                </div>
+              ))}
+            </div>
+            <div className='bg-[#B70909] w-[140px] mx-auto rounded text-center'>
+              <a href='#' className='block px-2 py-1 text-white text-[18px] font-semibold'>Scopri altro</a>
+            </div>
+          </div>
+
+          {/* Team Home */}
+
+          <p className='text-[20px] font-semibold mb-4 text-center'>Dai un'occhiata ai tuoi Team!</p>
+          <Team></Team>
+
+          <div className='bg-[#B70909] w-[140px] mx-auto rounded text-center mb-10'>
+              <a href='#' className='block px-2 py-1 text-white text-[18px] font-semibold'>Vai ai team</a>
+            </div>
+
+        </div>
+      </div>
+
     </div>
   );
 }
