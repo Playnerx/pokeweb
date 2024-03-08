@@ -1,5 +1,5 @@
-import Card from './utilities/Card';
-import Team from './utilities/Team';
+import Card from './utilities/Cards/Card';
+import Team from './utilities/Teams/Team';
 import RandomDescription from './utilities/RandomDescription';
 
 export default function Home() {
@@ -20,6 +20,7 @@ export default function Home() {
           <p className="mt-4">Di che Pokémon sto parlando?</p>
         </div>
       </div>
+
       <div className='w-full flex justify-center'>
         <div className='w-[1000px] h-[100%] mx-auto'>
 

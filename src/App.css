@@ -1,246 +1,266 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
 }
 a {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 ul {
-    list-style-type: none;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
+  list-style-type: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
 }
 p {
-    margin-top: 0;
-    margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* HEADER */
 
 .fullNavbar {
-    background-color: #B70909;
-    width: 100%;
-    height: 100px;
+  background-color: #b70909;
+  width: 100%;
+  height: 100px;
 }
 .navbar {
-    width: 1400px;
-    height: 100%;
-    margin: 0 auto;
+  width: 1400px;
+  height: 100%;
+  margin: 0 auto;
 }
 .navbarBorder {
-    border-bottom: 2px solid;
-    border-color: black;
+  border-bottom: 2px solid;
+  border-color: black;
 }
 .centralNavbar {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 .iconImage {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 .marginNav {
-    margin-right: 60px !important;
+  margin-right: 60px !important;
 }
 .navMenu {
-    display: flex;
+  display: flex;
 }
 
 .navMenu a {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .navMenu:hover {
-    background: linear-gradient(to bottom, #FFFFFF00 0%, #FDB426 100%);
+  background: linear-gradient(to bottom, #ffffff00 0%, #fdb426 100%);
 }
-.activeMenu {
-    background: linear-gradient(to bottom, #FFFFFF00 0%, #FDB426 100%);
+.active {
+  background: linear-gradient(to bottom, #ffffff00 0%, #fdb426 100%);
 }
 
 /* FOOTER  */
 
 .fullFooter {
-    background-color: black;
-    width: 100%;
-    padding-bottom: 50px;
+  background-color: black;
+  width: 100%;
+  padding-bottom: 50px;
 }
 .footer {
-    width: 1400px;
-    height: 100%;
-    margin: 0 auto;
-    /* background-color: teal; */
+  width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  /* background-color: teal; */
 }
 .footerMenu {
-    width: 350px;
-    /* background-color: #FDB426; */
+  width: 350px;
+  /* background-color: #FDB426; */
 }
 
 /* HOME */
 
 .wallpaperHome {
-    background-image: url(components/assets/img/pokemonlandscape2.jpg);
+  background-image: url(components/assets/img/pokemonlandscape2.jpg);
 }
 
 .topCard {
-    background-image: url(components/assets/img/Card.jpg);
-    background-repeat: no-repeat;
+  background-image: url(components/assets/img/Card.jpg);
+  background-repeat: no-repeat;
 }
-
 
 /* LOGIN / REGISTER */
 
 .loginBackground {
-    background-image: url(components/assets/img/pokemonlandscape.jpg);
-    background-size: cover;
-    background-position: center;
-    width: 100vw;
-    height: 100vh;
+  background-image: url(components/assets/img/pokemonlandscape.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 .registerBackground {
-    background-image: url(components/assets/img/pokemonlandscape2.jpg);
-    background-size: cover;
-    background-position: center;
-    width: 100vw;
-    height: 100vh;
+  background-image: url(components/assets/img/pokemonlandscape2.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
 }
 
-  .wrapperLogin {
-    width: 400px;
-    border-radius: 8px;
-    padding: 30px;
-    text-align: center;
-    border: 2px solid white;
-    backdrop-filter: blur(9px);
-    -webkit-backdrop-filter: blur(9px);
-  }
+.wrapperLogin {
+  width: 400px;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  border: 2px solid white;
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
 
-  .wrapperRegister {
-    width: 480px;
-    border-radius: 8px;
-    padding: 30px;
-    text-align: center;
-    border: 2px solid white;
-    backdrop-filter: blur(9px);
-    -webkit-backdrop-filter: blur(9px);
-  }
-  
-  .formLogin {
-    display: flex;
-    flex-direction: column;
-  }
+.wrapperRegister {
+  width: 480px;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  border: 2px solid white;
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
 
-  .formRegister {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .inputField {
-    position: relative;
-    border-bottom: 2px solid #ccc;
-    margin: 15px 0;
-  }
-  
-  .inputField label {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    color: #fff;
-    font-size: 16px;
-    pointer-events: none;
-    transition: 0.15s ease;
-  }
-  
-  .inputField input {
-    width: 100%;
-    height: 40px;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    color: #fff;
-  }
-  
-  .inputField input:focus~label,
-  .inputField input:valid~label {
-    font-size: 0.8rem;
-    top: 10px;
-    transform: translateY(-120%);
-  }
-  
-  .forget {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 25px 0 35px 0;
-    color: #fff;
-  }
-  
-  #remember {
-    accent-color: #fff;
-  }
-  
-  .forget label {
-    display: flex;
-    align-items: center;
-  }
-  
-  .forget label p {
-    margin-left: 8px;
-  }
-  
-  .wrapper a {
-    color: #efefef;
-    text-decoration: none;
-  }
-  
-  .wrapper a:hover {
-    text-decoration: underline;
-  }
-  
-  .buttonLogin {
-    background-color: #fff !important;
-    color: #000;
-    font-weight: 600;
-    border: none;
-    padding: 12px 20px;
-    cursor: pointer;
-    border-radius: 3px;
-    font-size: 16px;
-    border: 2px solid transparent;
-    transition: 0.3s ease;
-  }
-  
-  .buttonLogin:hover {
-    color: #fff;
-    border-color: #fff;
-    background: rgba(255, 255, 255, 0.15) !important;
-  }
-  
-  .register {
-    text-align: center;
-    margin-top: 30px;
-    color: #fff;
-  }
-  .register a {
-    color: greenyellow;
-    text-decoration-line: underline;
-    text-underline-offset: 4px;
-  }
+.formLogin {
+  display: flex;
+  flex-direction: column;
+}
 
-  .login {
-    text-align: center;
-    margin-top: 30px;
-    color: #fff;
-  }
-  .login a {
-    color: greenyellow;
-    text-decoration-line: underline;
-    text-underline-offset: 4px;
-  }
+.formRegister {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputField {
+  position: relative;
+  border-bottom: 2px solid #ccc;
+  margin: 15px 0;
+}
+
+.inputField label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+
+.inputField input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+}
+
+.inputField input:focus ~ label,
+.inputField input:valid ~ label {
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
+}
+
+.forgetLogin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 25px 0 35px 0;
+  color: #fff;
+}
+.forgetRegister {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 25px 0 35px 0;
+  color: #fff;
+}
+#remember {
+  accent-color: #fff;
+}
+
+.forgetLogin label {
+  display: flex;
+  align-items: center;
+}
+
+.forgetLogin label p {
+  margin-left: 8px;
+}
+
+.forgetRegister label {
+  display: flex;
+  align-items: center;
+}
+
+.forgetRegister label p {
+  margin-left: 8px;
+}
+
+.wrapper a {
+  color: #efefef;
+  text-decoration: none;
+}
+
+.wrapper a:hover {
+  text-decoration: underline;
+}
+
+.buttonLogin {
+  background-color: #fff !important;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+}
+
+.buttonLogin:hover {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.register {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
+}
+.register a {
+  color: greenyellow;
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+.login {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
+}
+.login a {
+  color: greenyellow;
+  text-underline-offset: 4px;
+  text-decoration-line: underline;
+}
+
+/* POKEDEX PAGE */
+
+.wallpaperPokedex {
+    background-image: url(components/assets/img/pokemonlandscape.jpg);
+}

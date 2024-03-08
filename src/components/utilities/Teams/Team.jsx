@@ -1,9 +1,9 @@
-import MiniCard from "./MiniCard";
+import MiniCard from "../Cards/MiniCard";
 
 export default function Team() {
     return (
         <div className='homeTeam'>
-            <div className='teamContainer mb-8'>
+            <div className='teamContainer mb-16'>
                 <a href='#'>
                     <div className='max-w-[600px] bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] rounded-[20px] mx-auto'>
                         <div className='p-4'>

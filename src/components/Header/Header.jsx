@@ -4,6 +4,7 @@ import homeIcon from "../assets/img/house-solid.png";
 import pokeIcon from "../assets/img/pokeball.bafce1b0.jpg";
 import buildIcon from "../assets/img/pen-to-square-regular.png";
 import '../../App.css';
+import { NavLink } from 'react-router-dom';
 
 // Componente separato per il menu dropdown
 const DropdownMenu = () => {
@@ -65,23 +66,23 @@ export default function Header() {
         {/* Menu centrato */}
         <div className='centralNavbar hidden lg:block'>
           <ul className='flex justify-between'>
-            <li className='navMenu activeMenu marginNav font-bold text-white'>
-              <a href='#' className='h-[98px] items-center px-7'>
+            <li className='navMenu marginNav font-bold text-white'>
+              <NavLink to="/" activeClassName="active" className='h-[98px] items-center px-7'>
                 <p><img className='iconImage mx-auto mb-2' src={homeIcon} alt="Home Icon" /></p>
                 <p>Home</p>
-              </a>
+              </NavLink>
             </li>
             <li className='navMenu marginNav font-bold text-white'>
-              <a href='#' className='h-[98px] items-center px-7'>
+              <NavLink to="/pokedex" activeClassName="active" className='h-[98px] items-center px-7'>
                 <p><img className='iconImage mx-auto mb-2' src={pokeIcon} alt="Poké Icon" /></p>
                 <p>Pokédex</p>
-              </a>
+              </NavLink>
             </li>
             <li className='navMenu font-bold text-white'>
-              <a href='#' className='h-[98px] items-center px-7'>
+              <NavLink to="/teams" activeClassName="active" className='h-[98px] items-center px-7'>
                 <p><img className='iconImage mx-auto mb-2' src={buildIcon} alt="Build Icon" /></p>
                 <p>Teams</p>
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>

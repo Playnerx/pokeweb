@@ -22,7 +22,7 @@ export default function Login() {
                           <input type="password" required />
                           <label>Conferma la tua password</label>
                       </div>
-                      <div className="forget">
+                      <div className="forgetRegister">
                           <label htmlFor="remember" className="flex items-center cursor-pointer">
                               <input className="cursor-pointer" type="checkbox" id="remember" />
                               <p className="">Accetto termini e condizioni</p>

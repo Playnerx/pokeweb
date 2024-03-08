@@ -14,7 +14,7 @@ export default function Login() {
                             <input type="password" required />
                             <label>Inserisci la tua password</label>
                         </div>
-                        <div className="forget">
+                        <div className="forgetLogin">
                             <label htmlFor="remember" className="flex items-center cursor-pointer">
                                 <input className="cursor-pointer" type="checkbox" id="remember" />
                                 <p className="">Ricordami</p>
