@@ -1,12 +1,13 @@
 import Card from './utilities/Cards/Card';
 import Team from './utilities/Teams/Team';
 import RandomDescription from './utilities/RandomDescription';
+import { NavLink } from 'react-router-dom';
 
 export default function Home() {
 
   return (
     <div className="home">
-      <div className="bg-white w-100 h-[120px] flex justify-center items-center">
+      <div className="backgroundUser w-100 h-[120px] flex justify-center items-center">
         <p className="text-center text-[30px] font-semibold">Bentornato, Utente!</p>
       </div>
 
@@ -36,7 +37,7 @@ export default function Home() {
               ))}
             </div>
             <div className='bg-[#B70909] w-[140px] mx-auto rounded text-center'>
-              <a href='#' className='block px-2 py-1 text-white text-[18px] font-semibold'>Scopri altro</a>
+               <NavLink to="/pokedex" className='block px-2 py-1 text-white text-[18px] font-semibold'>Scopri altro</NavLink>
             </div>
           </div>
 
@@ -46,7 +47,7 @@ export default function Home() {
           <Team></Team>
 
           <div className='bg-[#B70909] w-[140px] mx-auto rounded text-center mb-10'>
-              <a href='#' className='block px-2 py-1 text-white text-[18px] font-semibold'>Vai ai team</a>
+              <NavLink to="/teams" className='block px-2 py-1 text-white text-[18px] font-semibold'>Vai ai team</NavLink>
             </div>
 
         </div>

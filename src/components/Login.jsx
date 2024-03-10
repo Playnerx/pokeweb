@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 export default function Login() {
     return (
         <>
@@ -24,7 +26,7 @@ export default function Login() {
                         <button className="buttonLogin" type="submit">Log In</button>
                         <div className="register font-semibold">
                             <p>
-                                Non hai un account? <a href="#">Registrati</a>!
+                                Non hai un account? <NavLink to="/register">Registrati</NavLink>!
                             </p>
                         </div>
                     </form>

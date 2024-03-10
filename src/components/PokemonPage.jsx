@@ -7,6 +7,7 @@ export default function PokemonPage() {
 
     return (
         <>
+
             <div className='w-full h-[50px] flex justify-between mt-10 mb-10'>
                 <a href="#" className='bg-[black] w-[45%] h-full flex justify-end items-center pr-[100px] block'>
                     <img className='w-[12px] mr-6' src={iconLeftArrow} alt="Left Arrow" />
@@ -26,8 +27,14 @@ export default function PokemonPage() {
 
             <div className='w-full flex justify-center'>
                 <div className='w-[1000px] h-[100%] mx-auto text-center'>
+
+                    <div className='relative bg-[#B70909] w-[180px] rounded flex justify-center items-center mb-5'>
+                        <a href='#' className='block px-3 py-2 text-white text-[16px] font-semibold'>Torna indietro</a>
+                        <img className='absolute left-0 w-[12px] ml-4' src={iconLeftArrow} alt="Icon Random" />
+                    </div>
+
                     <p className='text-[18px] text-[orange] font-semibold'>N°0001</p>
-                    <p className='text-[50px] my-5 font-semibold'>Bulbasaur</p>
+                    <p className='text-[50px] my-1 font-semibold'>Bulbasaur</p>
                     <p className='text-[18px] text-[orange] font-semibold mb-10'>Prima Generazione</p>
 
 

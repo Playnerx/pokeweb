@@ -10,9 +10,9 @@ import { NavLink } from 'react-router-dom';
 const DropdownMenu = () => {
   return (
     <ul className="w-full text-center">
-      <li className="my-2"><a href="#" className="hover:text-white font-bold block px-4 py-2 hover:bg-[black]">Home</a></li>
-      <li className="my-2"><a href="#" className="hover:text-white font-bold block px-4 py-2 hover:bg-[black]">Pokédex</a></li>
-      <li className="my-2"><a href="#" className="hover:text-white font-bold block px-4 py-2 hover:bg-[black]">Teams</a></li>
+      <li className="my-2"><NavLink to="/" className="hover:text-white font-bold block px-4 py-2 hover:bg-[black]">Home</NavLink></li>
+      <li className="my-2"><NavLink to="/pokedex" className="hover:text-white font-bold block px-4 py-2 hover:bg-[black]">Pokédex</NavLink></li>
+      <li className="my-2"><NavLink to="/teams" className="hover:text-white font-bold block px-4 py-2 hover:bg-[black]">Teams</NavLink></li>
     </ul>
   );
 };
@@ -42,7 +42,7 @@ export default function Header() {
       <div className="navbar max-2xl:w-[80%] flex justify-between items-center mx-auto">
         <div className='w-max'>
           <div>
-            <a href='#'><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/581e2efc-8fab-47ca-9536-3770aab24ea4/d2joc5j-c2562d13-9dbe-4747-b70b-03e25d3abb80.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzU4MWUyZWZjLThmYWItNDdjYS05NTM2LTM3NzBhYWIyNGVhNFwvZDJqb2M1ai1jMjU2MmQxMy05ZGJlLTQ3NDctYjcwYi0wM2UyNWQzYWJiODAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.7RCqdHsS0eXFQ4PjKi-Nusb3gfY259k3RIeHZv4rlKs" width={60} /></a>
+            <NavLink to="/"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/581e2efc-8fab-47ca-9536-3770aab24ea4/d2joc5j-c2562d13-9dbe-4747-b70b-03e25d3abb80.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzU4MWUyZWZjLThmYWItNDdjYS05NTM2LTM3NzBhYWIyNGVhNFwvZDJqb2M1ai1jMjU2MmQxMy05ZGJlLTQ3NDctYjcwYi0wM2UyNWQzYWJiODAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.7RCqdHsS0eXFQ4PjKi-Nusb3gfY259k3RIeHZv4rlKs" width={60} /></NavLink>
           </div>
         </div>
 
