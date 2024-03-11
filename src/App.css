@@ -101,6 +101,39 @@ p {
   background-repeat: no-repeat;
 }
 
+.inputFieldRandom {
+  position: relative;
+  border-bottom: 2px solid #ccc;
+  margin: 15px 0;
+}
+
+.inputFieldRandom label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+
+.inputFieldRandom input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+}
+
+.inputFieldRandom input:focus ~ label,
+.inputFieldRandom input:valid ~ label {
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
+}
+
 /* LOGIN / REGISTER */
 
 .loginBackground {

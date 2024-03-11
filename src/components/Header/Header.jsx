@@ -3,7 +3,6 @@ import userAvatar from "../assets/img/user.png";
 import homeIcon from "../assets/img/house-solid.png";
 import pokeIcon from "../assets/img/pokeball.bafce1b0.jpg";
 import buildIcon from "../assets/img/pen-to-square-regular.png";
-import '../../App.css';
 import { NavLink } from 'react-router-dom';
 
 // Componente separato per il menu dropdown
@@ -13,6 +12,7 @@ const DropdownMenu = () => {
       <li className="my-2"><NavLink to="/" className="hover:text-white font-bold block px-4 py-2 hover:bg-[black]">Home</NavLink></li>
       <li className="my-2"><NavLink to="/pokedex" className="hover:text-white font-bold block px-4 py-2 hover:bg-[black]">Pokédex</NavLink></li>
       <li className="my-2"><NavLink to="/teams" className="hover:text-white font-bold block px-4 py-2 hover:bg-[black]">Teams</NavLink></li>
+      <li className="my-2"><p className="hover:text-white font-bold block px-4 py-2 hover:bg-[black]">Logout</p></li>
     </ul>
   );
 };
@@ -58,7 +58,7 @@ export default function Header() {
             </svg>
           </button>
           {/* Dropdown del menu */}
-          <div className={`${menuOpen ? 'h-[160px]' : 'h-0'} z-50 overflow-hidden flex justify-center items-center absolute left-0 w-full bg-white duration-500 mt-[28px] shadow-[0_5px_10px_rgba(0,0,0,.25)]`}>
+          <div className={`${menuOpen ? 'h-[200px]' : 'h-0'} z-50 overflow-hidden flex justify-center items-center absolute left-0 w-full bg-white duration-500 mt-[28px] shadow-[0_5px_10px_rgba(0,0,0,.25)]`}>
             <DropdownMenu />
           </div>
         </div>
@@ -88,11 +88,30 @@ export default function Header() {
         </div>
 
         {/* Menu LogIn */}
-        <div className='endNavbar hidden lg:block'>
-          <a href="#">
-            <img className='iconImage' src={userAvatar} alt="User Avatar" />
-          </a>
-        </div>
+        <div className="endNavbar hidden lg:flex items-center">
+  <div className="relative">
+    <button
+      className="focus:outline-none flex items-center"
+      onClick={toggleMenu}
+    >
+      <div className="flex flex-col items-center">
+        <img className='iconImage' src={userAvatar} alt="User Avatar" />
+        <p className="text-white mt-2 font-semibold">Nome_Utente</p>
+      </div>
+    </button>
+    {menuOpen && (
+      <div className="z-10 absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
+        <a
+          href="#"
+          className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+        >
+          Logout
+        </a>
+      </div>
+    )}
+  </div>
+</div>
+
       </div>
     </div>
   );

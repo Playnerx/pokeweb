@@ -13,13 +13,12 @@ export default function Home() {
 
       {/* Random Home */}
 
-      <div className="relative w-100 h-[160px] flex justify-center items-center wallpaperHome bg-center bg-cover">
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="text-white text-center font-semibold relative">
-          <p className="mb-4">Ecco il tuo indovinello di oggi...</p>
-          <RandomDescription />
-          <p className="mt-4">Di che Pokémon sto parlando?</p>
-        </div>
+      <div className="relative w-100 h-[300px] flex justify-center items-center wallpaperHome bg-center bg-cover">
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className='text-white text-center font-semibold relative'>
+      <p className="mb-4">Ecco il tuo indovinello di oggi...</p>
+      <RandomDescription></RandomDescription>
+      </div>
       </div>
 
       <div className='w-full flex justify-center'>
