@@ -57,13 +57,13 @@ const RandomDescription = () => {
 
   return (
     <>
-        <p>{randomPokemon && randomPokemon.flavor_text_entries.find(entry => entry.language.name === 'it').flavor_text}</p>
+        <p className='text-[15px] sm:text-[16px] px-4 italic'>"{randomPokemon && randomPokemon.flavor_text_entries.find(entry => entry.language.name === 'it').flavor_text}"</p>
         <p className="mt-4">Di che Pokémon sto parlando?</p>
         <div className='inputFieldRandom w-[200px] mx-auto'>
           <input className="text-center" type="text" value={userAnswer} onChange={handleUserAnswer} onKeyPress={handleKeyPress} />
         </div>
         <div className="mt-5">
-          <button className="bg-[#B70909] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={checkAnswer}>Indovina</button>
+          <button className="buttonSite" onClick={checkAnswer}>Indovina</button>
         </div>
         {resultMessage && <p className='mt-4'>{resultMessage}</p>}
     </>

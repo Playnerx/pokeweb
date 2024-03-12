@@ -25,7 +25,7 @@ export default function Pokedex() {
           {/* PULSANTI */}
 
           <div className='w-full md:w-auto flex flex-col md:flex-row justify-center items-center mt-8'>
-            <div className='relative bg-[#B70909] w-[220px] md:w-[220px] mx-auto mb-4 md:mb-0 rounded flex items-center'>
+            <div className='relative buttonActions w-[220px] md:w-[220px] mx-auto mb-4 md:mb-0 rounded flex items-center'>
               <a href='#' className='block px-3 py-2 text-white text-[16px] font-semibold'>
                 <div className="flex items-center">
                   Generatore casuale
@@ -34,7 +34,7 @@ export default function Pokedex() {
               </a>
             </div>
 
-            <div className='relative bg-[#B70909] w-[220px] md:w-[220px] mx-auto rounded flex items-center md:ml-4'>
+            <div className='relative buttonActions w-[220px] md:w-[220px] mx-auto rounded flex items-center md:ml-4'>
               <a href='#' className='block px-3 py-2 text-white text-[16px] font-semibold'>
                 <div className="flex items-center">
                   Ordine Crescente
@@ -55,7 +55,7 @@ export default function Pokedex() {
               ))}
             </div>
             <div className='bg-[#B70909] w-[140px] mx-auto rounded text-center'>
-              <a href='#' className='block px-2 py-1 text-white text-[18px] font-semibold'>Carica altro</a>
+              <a href='#' className='buttonSite block'>Carica altro</a>
             </div>
           </div>
 

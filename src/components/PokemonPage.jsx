@@ -28,8 +28,8 @@ export default function PokemonPage() {
             <div className='w-full flex justify-center'>
                 <div className='w-[1000px] h-[100%] mx-auto text-center'>
 
-                    <div className='relative bg-[#B70909] w-[180px] rounded flex justify-center items-center mb-5'>
-                        <a href='#' className='block px-3 py-2 text-white text-[16px] font-semibold'>Torna indietro</a>
+                    <div className='relative buttonActions w-[180px] rounded flex justify-center items-center mb-5'>
+                        <a href='#' className='block ml-4 px-3 py-2 text-white text-[16px] font-semibold'>Torna indietro</a>
                         <img className='absolute left-0 w-[12px] ml-4' src={iconLeftArrow} alt="Icon Random" />
                     </div>
 
@@ -42,8 +42,8 @@ export default function PokemonPage() {
 
                     <div className='w-100 mx-auto mb-8'>
                         <div className='bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] border-b-[2px]  w-full h-[350px] rounded-t-[40px] flex justify-center items-center'>
-                            <div>
-                                <img className="mx-auto w-[650px] h-full max-w-none pixelated" src="https://github.com/PokeAPI/sprites/blob/ca5a7886c10753144e6fae3b69d45a4d42a449b4/sprites/pokemon/1.png?raw=true" alt="Bulbasaur" />
+                            <div className=''>
+                                <img className="mx-auto w-[320px] pixelated" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/800.png" alt="Bulbasaur" />
                             </div>
                         </div>
                         <div className='w-full h-[100px] bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] rounded-b-[40px] flex justify-center items-center flex-col'>
@@ -187,7 +187,7 @@ export default function PokemonPage() {
 
                     {/* LINEA EVOLUTIVA */}
 
-                    <div className='w-100 pb-10 mx-auto bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] rounded-[12px] mb-16'>
+                    <div className='w-100 pb-10 mx-auto bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] rounded-[12px] mb-10'>
                         <p className='py-5 text-[30px] font-semibold'>Linea Evolutiva</p>
 
                         <div className='flex justify-between px-20'>

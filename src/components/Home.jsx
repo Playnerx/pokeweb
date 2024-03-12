@@ -14,11 +14,11 @@ export default function Home() {
       {/* Random Home */}
 
       <div className="relative w-100 h-[300px] flex justify-center items-center wallpaperHome bg-center bg-cover">
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className='text-white text-center font-semibold relative'>
-      <p className="mb-4">Ecco il tuo indovinello di oggi...</p>
-      <RandomDescription></RandomDescription>
-      </div>
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className='text-white text-center font-semibold relative'>
+          <p className="mb-4">Ecco il tuo indovinello di oggi...</p>
+          <RandomDescription></RandomDescription>
+        </div>
       </div>
 
       <div className='w-full flex justify-center'>
@@ -28,15 +28,15 @@ export default function Home() {
 
           <div className='homePokedex mt-10 mb-10'>
             <p className='text-[20px] font-semibold mb-4 text-center'>Dai un'occhiata a questi Pokémon...</p>
-            <div className='flex flex-wrap justify-center lg:justify-between'>
+            <div className='flex flex-wrap justify-center lg:justify-between md:px-28 xl:px-0'>
               {Array(4).fill(null).map((el, index) => (
-                <div className="w-full lg:w-1/2 xl:w-1/4 px-2 mb-4" key={index}> {/* Imposta la larghezza della card */}
+                <div className="w-full sm:w-1/2 lg:w-1/2 xl:w-1/4 mb-10" key={index}>
                   <Card></Card>
                 </div>
               ))}
             </div>
-            <div className='bg-[#B70909] w-[140px] mx-auto rounded text-center'>
-               <NavLink to="/pokedex" className='block px-2 py-1 text-white text-[18px] font-semibold'>Scopri altro</NavLink>
+            <div className='buttonSite w-[140px] mx-auto rounded text-center'>
+              <NavLink to="/pokedex" className='block'>Scopri altro</NavLink>
             </div>
           </div>
 
@@ -45,9 +45,9 @@ export default function Home() {
           <p className='text-[20px] font-semibold mb-4 text-center'>Dai un'occhiata ai tuoi Team!</p>
           <Team></Team>
 
-          <div className='bg-[#B70909] w-[140px] mx-auto rounded text-center mb-10'>
-              <NavLink to="/teams" className='block px-2 py-1 text-white text-[18px] font-semibold'>Vai ai team</NavLink>
-            </div>
+          <div className='buttonSite w-[140px] mx-auto rounded text-center mb-10'>
+            <NavLink to="/teams" className='block'>Vai ai team</NavLink>
+          </div>
 
         </div>
       </div>

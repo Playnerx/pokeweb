@@ -24,6 +24,34 @@ p {
 .pixelated {
   image-rendering: pixelated;
 }
+.buttonSite {
+  background-color: #b70909;
+  color: #fff;
+  transition: background-color 1s, color 0.3s;
+  font-size: 16px;
+  font-weight: 600;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+
+.buttonSite:hover {
+  background-color: #fff;
+  color: #b70909;
+  border: 1px solid #b70909;
+}
+
+.buttonActions {
+  background-color: #b70909;
+  color: white;
+  transition: background-color 1s, color 0.2s;
+}
+.buttonActions:hover {
+  background-color: #e72e2e;
+}
 
 /* HEADER */
 
