@@ -92,7 +92,7 @@ p {
 .navMenu:hover {
   background: linear-gradient(to bottom, #ffffff00 0%, #fdb426 100%);
 }
-.active {
+.navActive {
   background: linear-gradient(to bottom, #ffffff00 0%, #fdb426 100%);
 }
 

@@ -67,19 +67,25 @@ export default function Header() {
         <div className='centralNavbar hidden lg:block'>
           <ul className='flex justify-between'>
             <li className='navMenu marginNav font-bold text-white'>
-              <NavLink to="/" className='h-[98px] items-center px-7'>
+              <NavLink to="/" className={({isActive}) => {
+                return `h-[98px] items-center px-7 ${isActive ? 'navActive' : ''}`
+                }}>
                 <p><img className='iconImage mx-auto mb-2' src={homeIcon} alt="Home Icon" /></p>
                 <p>Home</p>
               </NavLink>
             </li>
             <li className='navMenu marginNav font-bold text-white'>
-              <NavLink to="/pokedex" className='h-[98px] items-center px-7'>
+              <NavLink to="/pokedex" className={({isActive}) => {
+                return `h-[98px] items-center px-7 ${isActive ? 'navActive' : ''}`
+                }}>
                 <p><img className='iconImage mx-auto mb-2' src={pokeIcon} alt="Poké Icon" /></p>
                 <p>Pokédex</p>
               </NavLink>
             </li>
             <li className='navMenu font-bold text-white'>
-              <NavLink to="/teams" className='h-[98px] items-center px-7'>
+              <NavLink to="/teams" className={({isActive}) => {
+                return `h-[98px] items-center px-7 ${isActive ? 'navActive' : ''}`
+                }}>
                 <p><img className='iconImage mx-auto mb-2' src={buildIcon} alt="Build Icon" /></p>
                 <p>Teams</p>
               </NavLink>
