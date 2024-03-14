@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect, useContext } from "react";
 import './App.css'
 import Home from "./components/Home";
 import AuthLayout from "./components/Layouts/AuthLayout";
@@ -9,8 +10,14 @@ import Pokedex from "./components/Pokedex";
 import Teams from "./components/Teams";
 import PokemonPage from "./components/PokemonPage";
 import TeamPage from "./components/TeamPage";
-
+import { useAuth } from "./components/AuthProvider";
 function App() {
+
+  const { userData, loginUserOnStartup, setLogout } = useAuth();
+
+	useEffect(() => {
+		loginUserOnStartup();
+	}, []);
 
   return (
     <>
