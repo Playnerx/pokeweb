@@ -2,13 +2,17 @@ import Card from './utilities/Cards/Card';
 import Team from './utilities/Teams/Team';
 import RandomDescription from './utilities/RandomDescription';
 import { NavLink } from 'react-router-dom';
+import { useAuth } from './AuthProvider';
+import { useEffect } from 'react';
 
 export default function Home() {
+
+  const { userData } = useAuth();
 
   return (
     <div className="home">
       <div className="backgroundUser w-100 h-[120px] flex justify-center items-center">
-        <p className="text-center text-[30px] font-semibold">Bentornato, Utente!</p>
+        <p className="text-center text-[30px] font-semibold">Bentornato, {userData?.user?.username}!</p>
       </div>
 
       {/* Random Home */}

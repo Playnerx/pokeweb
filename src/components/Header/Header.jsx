@@ -4,6 +4,7 @@ import homeIcon from "../assets/img/house-solid.png";
 import pokeIcon from "../assets/img/pokeball.bafce1b0.jpg";
 import buildIcon from "../assets/img/pen-to-square-regular.png";
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../AuthProvider';
 
 // Dropdown Menu
 const DropdownMenu = () => {
@@ -20,6 +21,8 @@ const DropdownMenu = () => {
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
+
+  const { userData, setLogout } = useAuth();
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -67,25 +70,25 @@ export default function Header() {
         <div className='centralNavbar hidden lg:block'>
           <ul className='flex justify-between'>
             <li className='navMenu marginNav font-bold text-white'>
-              <NavLink to="/" className={({isActive}) => {
+              <NavLink to="/" className={({ isActive }) => {
                 return `h-[98px] items-center px-7 ${isActive ? 'navActive' : ''}`
-                }}>
+              }}>
                 <p><img className='iconImage mx-auto mb-2' src={homeIcon} alt="Home Icon" /></p>
                 <p>Home</p>
               </NavLink>
             </li>
             <li className='navMenu marginNav font-bold text-white'>
-              <NavLink to="/pokedex" className={({isActive}) => {
+              <NavLink to="/pokedex" className={({ isActive }) => {
                 return `h-[98px] items-center px-7 ${isActive ? 'navActive' : ''}`
-                }}>
+              }}>
                 <p><img className='iconImage mx-auto mb-2' src={pokeIcon} alt="Poké Icon" /></p>
                 <p>Pokédex</p>
               </NavLink>
             </li>
             <li className='navMenu font-bold text-white'>
-              <NavLink to="/teams" className={({isActive}) => {
+              <NavLink to="/teams" className={({ isActive }) => {
                 return `h-[98px] items-center px-7 ${isActive ? 'navActive' : ''}`
-                }}>
+              }}>
                 <p><img className='iconImage mx-auto mb-2' src={buildIcon} alt="Build Icon" /></p>
                 <p>Teams</p>
               </NavLink>
@@ -95,28 +98,31 @@ export default function Header() {
 
         {/* Menu LogIn */}
         <div className="endNavbar hidden lg:flex items-center">
-  <div className="relative">
-    <button
-      className="focus:outline-none flex items-center"
-      onClick={toggleMenu}
-    >
-      <div className="flex flex-col items-center">
-        <img className='iconImage' src={userAvatar} alt="User Avatar" />
-        <p className="text-white mt-2 font-semibold">Nome_Utente</p>
-      </div>
-    </button>
-    {menuOpen && (
-      <div className="z-10 absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
-        <a
-          href="#"
-          className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-        >
-          Logout
-        </a>
-      </div>
-    )}
-  </div>
-</div>
+          <div className="relative">
+            <button
+              className="focus:outline-none flex items-center"
+              onClick={toggleMenu}
+            >
+              <div className="flex flex-col items-center">
+              <p className="text-white mt-2 font-semibold display">{userData?.user?.username}</p>
+                <img className='iconImage' src={userAvatar} alt="User Avatar" />
+                <button onClick={setLogout} className=''>Logout</button>
+              </div>
+            </button>
+            {/* {menuOpen && (
+              <div className="z-10 absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
+                { userData.token && 
+                  <button
+                    onClick={setLogout}
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                  >
+                    Logout
+                  </button>
+                }
+              </div>
+            )} */}
+          </div>
+        </div>
 
       </div>
     </div>

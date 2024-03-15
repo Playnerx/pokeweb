@@ -17,7 +17,7 @@ export default function Login() {
     } = useForm({ mode: "all" });
 
     const onSubmit = (formData) => {
-        fetcher(`${BACKEND_URL}/api/login`, {
+        fetcher(`${BACKEND_URL}/login`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
@@ -27,16 +27,19 @@ export default function Login() {
         })
             .then((response) => response.json())
             .then((data) => {
-                if (data.status !== 'error') {
+                if(data.status !== 401) {
                     setAsLogged(data.user, data["access_token"])
                 } else {
                     setError('email')
                     setError('password', { type: 'custom', message: data.message })
                 }
+
             })
             .catch((err) => {
                 console.log(err);
             });
+            
+
     };
 
     return (
@@ -48,13 +51,13 @@ export default function Login() {
                         <h2 className="text-[35px] font-semibold text-white">Login</h2>
                         <div className="inputField">
                             <input type="email" required {...register("email", { required: 'Field "Email" is required' })} />
-                            <label>Inserisci la tua email</label>
+                            <label htmlFor="email">Inserisci la tua email</label>
                         </div>
                         <div className="inputField">
                             <input type="password" required {...register("password", {
                                 required: 'Field "Password" is required',
                             })} />
-                            <label>Inserisci la tua password</label>
+                            <label htmlFor="password">Inserisci la tua password</label>
                         </div>
                         <div className="forgetLogin">
                             <label htmlFor="remember" className="flex items-center cursor-pointer">

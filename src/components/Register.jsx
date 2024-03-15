@@ -26,7 +26,7 @@ export default function Register() {
     }
 
     const onSubmit = (formData) => {
-        fetcher(`${BACKEND_URL}/api/register`, {
+        fetcher(`${BACKEND_URL}/register`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
@@ -61,7 +61,7 @@ export default function Register() {
                     <form className="formRegister" onSubmit={handleSubmit(onSubmit)}>
                         <h2 className="text-[35px] font-semibold text-white">Registrati</h2>
                         <div className="inputField">
-                            <input type="text" required {...register("name", { required: 'Field "Name" is required' })} />
+                            <input type="text" required {...register("username", { required: 'Field "Username" is required' })} />
                             <label>Inserisci il tuo nickname</label>
                         </div>
                         <div className="inputField">

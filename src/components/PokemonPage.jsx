@@ -43,7 +43,7 @@ export default function PokemonPage() {
                     <div className='w-100 mx-auto mb-8'>
                         <div className='bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] border-b-[2px]  w-full h-[350px] rounded-t-[40px] flex justify-center items-center'>
                             <div className=''>
-                                <img className="mx-auto w-[320px] pixelated" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/800.png" alt="Bulbasaur" />
+                                <img className="mx-auto w-[320px] pixelated" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/491.png" alt="Bulbasaur" />
                             </div>
                         </div>
                         <div className='w-full h-[100px] bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] rounded-b-[40px] flex justify-center items-center flex-col'>
