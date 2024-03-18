@@ -59,14 +59,14 @@ export default function Login() {
                             })} />
                             <label htmlFor="password">Inserisci la tua password</label>
                         </div>
-                        <div className="forgetLogin">
+                        {/* <div className="forgetLogin">
                             <label htmlFor="remember" className="flex items-center cursor-pointer">
                                 <input className="cursor-pointer" type="checkbox" id="remember" />
                                 <p className="">Ricordami</p>
                             </label>
                             <a href="#">Password dimenticata?</a>
-                        </div>
-                        <button className="buttonLogin" type="submit">Log In</button>
+                        </div> */}
+                        <button className="buttonLogin mt-5" type="submit">Log In</button>
                         <div className="register font-semibold">
                             <p>
                                 Non hai un account? <NavLink to="/register">Registrati</NavLink>!

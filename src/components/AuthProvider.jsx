@@ -47,6 +47,8 @@ const AuthProvider = ({ children }) => {
 		});
 		setUserData({ token: "", user: null });
 		navigate("/login");
+		
+		console.log("ciao")
 	};
 
 	const loginUserOnStartup = () => {

@@ -80,13 +80,13 @@ export default function Register() {
                             })} />
                             <label>Conferma la tua password</label>
                         </div>
-                        <div className="forgetRegister">
+                        {/* <div className="forgetRegister">
                             <label htmlFor="remember" className="flex items-center cursor-pointer">
                                 <input className="cursor-pointer" type="checkbox" id="remember" />
                                 <p className="">Accetto termini e condizioni</p>
                             </label>
-                        </div>
-                        <button className="buttonLogin" type="submit">Registrati</button>
+                        </div> */}
+                        <button className="buttonLogin mt-6" type="submit">Registrati</button>
                         <div className="login font-semibold">
                             <p>
                                 Hai già un account? <NavLink to="/login">Fai il Log In</NavLink>!

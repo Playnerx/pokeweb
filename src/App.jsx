@@ -11,14 +11,13 @@ import Teams from "./components/Teams";
 import PokemonPage from "./components/PokemonPage";
 import TeamPage from "./components/TeamPage";
 import { useAuth } from "./components/AuthProvider";
-import Prova from "./components/Prova";
 function App() {
 
-  /* const { userData, loginUserOnStartup, setLogout } = useAuth();
+  const { userData, loginUserOnStartup, setLogout } = useAuth();
 
 	useEffect(() => {
 		loginUserOnStartup();
-	}, []); */
+	}, []);
 
   return (
     <>
@@ -30,9 +29,7 @@ function App() {
           <Route path="/pokedex" element={<Pokedex />} />
           <Route path="/teams" element={<Teams />} />
           <Route path="/teampage" element={<TeamPage />} />
-          <Route path="/pokemon" element={<PokemonPage />} />
-          <Route path="/pokemon/:id" Component={PokemonDetails}></Route>
-          <Route path="/prova" element={<Prova></Prova>}></Route>
+          <Route path="/pokemon/:id" element={<PokemonPage></PokemonPage>}></Route>
         </Route>
       </Routes>
     </>

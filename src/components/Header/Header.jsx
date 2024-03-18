@@ -21,18 +21,23 @@ const DropdownMenu = () => {
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const buttonRef = useRef(null);
 
   const { userData, setLogout } = useAuth();
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target) && !buttonRef.current.contains(event.target)) {
         setMenuOpen(false);
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
+
+    // Aggiungi il gestore di eventi quando il componente viene montato
+    document.addEventListener('mousedown', handleClickOutside);
+
+    // Rimuovi il gestore di eventi quando il componente viene smontato
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
@@ -98,31 +103,30 @@ export default function Header() {
 
         {/* Menu LogIn */}
         <div className="endNavbar hidden lg:flex items-center">
-          <div className="relative">
-            <button
-              className="focus:outline-none flex items-center"
-              onClick={toggleMenu}
-            >
-              <div className="flex flex-col items-center">
-              <p className="text-white mt-2 font-semibold display">{userData?.user?.username}</p>
-                <img className='iconImage' src={userAvatar} alt="User Avatar" />
-                <button onClick={setLogout} className=''>Logout</button>
-              </div>
-            </button>
-            {/* {menuOpen && (
-              <div className="z-10 absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
-                { userData.token && 
-                  <button
-                    onClick={setLogout}
-                    className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                  >
-                    Logout
-                  </button>
-                }
-              </div>
-            )} */}
+      <div className="relative" ref={dropdownRef}>
+        <button
+          className="focus:outline-none flex items-center"
+          onClick={toggleMenu}
+        >
+          <div className="flex flex-col items-center">
+            <img className='iconImage' src={userAvatar} alt="User Avatar" />
+            <p className="text-white mt-2 font-semibold display">{userData?.user?.username}</p>
           </div>
-        </div>
+        </button>
+        {menuOpen && (
+          <div className="z-10 absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
+            {userData.token && 
+              <button ref={buttonRef}
+                onClick={setLogout}
+                className="w-full block px-4 py-2 font-semibold text-gray-800 hover:bg-gray-200 rounded-lg shadow-lg"
+              >
+                Logout
+              </button>
+            }
+          </div>
+        )}
+      </div>
+    </div>
 
       </div>
     </div>
