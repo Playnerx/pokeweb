@@ -3,11 +3,36 @@ import Team from './utilities/Teams/Team';
 import RandomDescription from './utilities/RandomDescription';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from './AuthProvider';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export default function Home() {
 
   const { userData } = useAuth();
+  const [pokemons, setPokemons] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/api/pokemon')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Request Error');
+            }
+            return response.json();
+        })
+        .then(data => {
+            setPokemons(data);
+            console.log(data);
+        })
+        .catch(error => {
+            console.log('Si è verificato un errore:', error);
+        });
+  }, []);
+
+  const getRandomPokemon = () => {
+    const shuffledPokemons = [...pokemons].sort(() => Math.random() - 0.5);
+    return shuffledPokemons.slice(0, 4);
+  }
 
   return (
     <div className="home">
@@ -33,9 +58,9 @@ export default function Home() {
           <div className='homePokedex mt-10 mb-10'>
             <p className='text-[20px] font-semibold mb-4 text-center'>Dai un'occhiata a questi Pokémon...</p>
             <div className='flex flex-wrap justify-center lg:justify-between md:px-28 xl:px-0'>
-              {Array(4).fill(null).map((el, index) => (
+              {getRandomPokemon().map((pokemon, index) => (
                 <div className="w-full sm:w-1/2 lg:w-1/2 xl:w-1/4 mb-10" key={index}>
-                  <Card></Card>
+                  <Card pokemonName={pokemon.nome} pokemonID={pokemon.id} pokemonType1={pokemon.tipo1} pokemonType2={pokemon.tipo2} pokemonGen={pokemon.generazione}></Card>
                 </div>
               ))}
             </div>

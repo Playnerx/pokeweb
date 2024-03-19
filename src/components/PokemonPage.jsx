@@ -17,22 +17,66 @@ export default function PokemonPage() {
     useEffect(() => {
         if (count < 1) {
             fetch(`http://localhost:8000/api/pokemon/${id}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Request Error');
-                }
-                return response.json();
-            })
-            .then(data => {
-                setpkmnInfo(data);
-                setCount(prev => prev+1)
-                console.log(data);
-            })
-            .catch(error => {
-                console.log('Si è verificato un errore:', error);
-            });
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Request Error');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    setpkmnInfo(data);
+                    setCount(prev => prev + 1)
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.log('Si è verificato un errore:', error);
+                });
         }
     }, [count, id]);
+
+    const getTypeColor = (type) => {
+        switch (type) {
+            case "Normale":
+                return "bg-[#A8A77A]";
+            case "Fuoco":
+                return "bg-[#EE8130]";
+            case "Acqua":
+                return "bg-[#6390F0]";
+            case "Elettro":
+                return "bg-[#f7bd2c]";
+            case "Erba":
+                return "bg-[#7AC74C]";
+            case "Ghiaccio":
+                return "bg-[#96D9D6]";
+            case "Lotta":
+                return "bg-[#C22E28]";
+            case "Veleno":
+                return "bg-[#A33EA1]";
+            case "Terra":
+                return "bg-[#E2BF65]";
+            case "Volante":
+                return "bg-[#A98FF3]";
+            case "Psico":
+                return "bg-[#F95587]";
+            case "Coleottero":
+                return "bg-[#A6B91A]";
+            case "Roccia":
+                return "bg-[#B6A136]";
+            case "Spettro":
+                return "bg-[#735797]";
+            case "Drago":
+                return "bg-[#6F35FC]";
+            case "Buio":
+                return "bg-[#705746]";
+            case "Acciaio":
+                return "bg-[#B7B7CE]";
+            case "Folletto":
+                return "bg-[#D685AD]";
+
+            default:
+                return "bg-none";
+        }
+    };
 
     return (
         <>
@@ -85,7 +129,14 @@ export default function PokemonPage() {
 
                     <p className='text-center mb-4 text-[23px] font-semibold'>Tipo</p>
                     <div className='w-100 py-2 mx-auto flex justify-center items-center bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] rounded-[12px] mb-8'>
-                        <p className=''>{pkmnInfo.tipo1} / {pkmnInfo.tipo2}</p>
+                        <div className="flex justify-center">
+                            <div className={`${getTypeColor(pkmnInfo.tipo1)} rounded-[4px] w-[90px] h-7 flex justify-center items-center me-2`}>
+                                <p className='text-center text-white font-semibold'>{pkmnInfo.tipo1}</p>
+                            </div>
+                            <div className={`${getTypeColor(pkmnInfo.tipo2)} rounded-[4px] w-[90px] h-7 flex justify-center items-center`}>
+                                <p className='text-center text-white font-semibold'>{pkmnInfo.tipo2}</p>
+                            </div>
+                        </div>
                     </div>
 
                     {/* ABILITA */}
@@ -118,7 +169,7 @@ export default function PokemonPage() {
                         </div>
 
                         <div className='flex justify-center mb-6'>
-                        <div className='w-[50%]'>
+                            <div className='w-[50%]'>
                                 <p className='text-center mb-0 text-[18px] font-semibold'>Categoria</p>
                                 <p className='text-center'>Pokémon {pkmnInfo.categoria}</p>
                             </div>

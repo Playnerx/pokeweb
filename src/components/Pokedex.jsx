@@ -120,7 +120,7 @@ const Pokedex = () => {
                         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4'>
                             {filteredPokemons.slice(0, visiblePokemons).map((pokemon) => (
                                 <div className="mb-10" key={pokemon.id}>
-                                    <Card pokemonName={pokemon.nome} pokemonID={pokemon.id}/>
+                                    <Card pokemonName={pokemon.nome} pokemonID={pokemon.id} pokemonType1={pokemon.tipo1} pokemonType2={pokemon.tipo2} pokemonGen={pokemon.generazione}/>
                                 </div>
                             ))}
                         </div>
