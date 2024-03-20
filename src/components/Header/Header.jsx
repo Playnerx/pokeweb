@@ -26,20 +26,23 @@ export default function Header() {
   const { userData, setLogout } = useAuth();
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target) && !buttonRef.current.contains(event.target)) {
-        setMenuOpen(false);
-      }
+  function handleClickOutside(event) {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target) &&
+      buttonRef.current &&
+      !buttonRef.current.contains(event.target)
+    ) {
+      setMenuOpen(false);
     }
+  }
 
-    // Aggiungi il gestore di eventi quando il componente viene montato
-    document.addEventListener('mousedown', handleClickOutside);
+  document.addEventListener('mousedown', handleClickOutside);
 
-    // Rimuovi il gestore di eventi quando il componente viene smontato
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+  return () => {
+    document.removeEventListener('mousedown', handleClickOutside);
+  };
+}, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);

@@ -1,5 +1,5 @@
 import React from 'react';
-import pokeballLoadingGif from '../assets/gif/pokeball_loading.gif';
+import pokeballLoadingGif from '../../assets/gif/pokeball_loading.gif';
 
 const LoadingPokeball = () => {
     return (

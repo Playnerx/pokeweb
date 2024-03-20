@@ -3,7 +3,8 @@ import iconSearch from '../components/assets/img/black-search-icon-png-8.jpg';
 import iconRandom from '../components/assets/img/dice-solid.png';
 import switchIcon from '../components/assets/img/switch.png';
 import Card from './utilities/Cards/Card';
-import LoadingPokeball from './utilities/LoadingPokeball';
+import LoadingPokeball from './utilities/Loadings/LoadingPokeball';
+import LoadingPage from './utilities/Loadings/LoadingPage';
 
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
@@ -14,6 +15,7 @@ const Pokedex = () => {
     const [visiblePokemons, setVisiblePokemons] = useState(9);
     const [searchValue, setSearchValue] = useState('');
     const [loading, setLoading] = useState(false);
+    const [loadingPage, setLoadingPage] = useState(true);
     const [sortType, setSortType] = useState('none');
 
     useEffect(() => {
@@ -27,6 +29,9 @@ const Pokedex = () => {
             .then(data => {
                 setPokemons(data);
                 console.log(data);
+                setTimeout(() => {
+                    setLoadingPage(false);
+                  }, 500);
             })
             .catch(error => {
                 console.log('Si è verificato un errore:', error);
@@ -66,11 +71,13 @@ const Pokedex = () => {
         setSortType(type);
     };
 
+    let urlInit = 'http://localhost:8000/';
+
     return (
         <>
-
+            {loadingPage && <LoadingPage />}
             {loading && <LoadingPokeball />}
-            <div className="relative w-full h-[160px] flex justify-center items-center wallpaperPokedex bg-center bg-cover">
+            <div className="relative w-full h-[160px] flex justify-center items-center wallpaperPokedex bg-center bg-cover animation-user">
                 <div className="absolute inset-0 bg-black opacity-50"></div>
                 <div className="text-white text-center font-semibold relative">
                     <p className="px-15 mb-4 text-sm md:text-base">Cerca un Pokémon per nome o per numero del Pokédex.</p>
@@ -120,12 +127,12 @@ const Pokedex = () => {
                         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4'>
                             {filteredPokemons.slice(0, visiblePokemons).map((pokemon) => (
                                 <div className="mb-10" key={pokemon.id}>
-                                    <Card pokemonName={pokemon.nome} pokemonID={pokemon.id} pokemonType1={pokemon.tipo1} pokemonType2={pokemon.tipo2} pokemonGen={pokemon.generazione}/>
+                                    <Card pokemonName={pokemon.nome} pokemonID={pokemon.id} pokemonType1={pokemon.tipo1} pokemonType2={pokemon.tipo2} pokemonGen={pokemon.generazione} pokemonImage={`${urlInit}${pokemon.immagine}`} />
                                 </div>
                             ))}
                         </div>
                         <div className='w-[140px] mx-auto rounded text-center'>
-                            <button onClick={loadMorePokemons} className='buttonSite'>Carica altro</button>
+                            {!searchValue && <button onClick={loadMorePokemons} className='buttonSite'>Carica altro</button>}
                         </div>
                     </div>
 

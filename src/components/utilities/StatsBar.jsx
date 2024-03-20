@@ -1,7 +1,7 @@
 import React from 'react';
 
 const StatsBar = ({ bgcolor, progress, height }) => {
-    const maxProgress = 200;
+    const maxProgress = 260;
     const progressPercentage = (progress / maxProgress) * 100;
 
     const Parentdiv = {

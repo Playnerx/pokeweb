@@ -1,32 +1,36 @@
+import React, { useState, useEffect } from 'react';
+import LoadingPage from './utilities/Loadings/LoadingPage';
 import Card from './utilities/Cards/Card';
 import Team from './utilities/Teams/Team';
 import RandomDescription from './utilities/RandomDescription';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from './AuthProvider';
-import { useEffect, useState } from 'react';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export default function Home() {
-
   const { userData } = useAuth();
   const [pokemons, setPokemons] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('http://localhost:8000/api/pokemon')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Request Error');
-            }
-            return response.json();
-        })
-        .then(data => {
-            setPokemons(data);
-            console.log(data);
-        })
-        .catch(error => {
-            console.log('Si è verificato un errore:', error);
-        });
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Request Error');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setPokemons(data);
+        console.log(data);
+        setTimeout(() => {
+          setLoading(false);
+        }, 500);
+      })
+      .catch(error => {
+        console.log('Si è verificato un errore:', error);
+      });
   }, []);
 
   const getRandomPokemon = () => {
@@ -34,19 +38,23 @@ export default function Home() {
     return shuffledPokemons.slice(0, 4);
   }
 
+  let urlInit = 'http://localhost:8000/';
+
   return (
     <div className="home">
-      <div className="backgroundUser w-100 h-[120px] flex justify-center items-center">
+      {loading && <LoadingPage />}
+      {/* <div className="backgroundUser w-100 h-[120px] flex justify-center items-center animation-user">
         <p className="text-center text-[30px] font-semibold">Bentornato, {userData?.user?.username}!</p>
-      </div>
+      </div> */}
 
       {/* Random Home */}
 
-      <div className="relative w-100 h-[300px] flex justify-center items-center wallpaperHome bg-center bg-cover">
+      <div className="relative w-100 h-[350px] flex justify-center items-center wallpaperHome bg-center bg-cover animation-user">
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className='text-white text-center font-semibold relative'>
+          <p className="text-center text-[20px] sm:text-[30px] font-semibold mb-4">Bentornato/a, <span className="text-[#ACCD2B] border-b border-[#ACCD2B]">{userData?.user?.username}</span>!</p>
           <p className="mb-4">Ecco il tuo indovinello di oggi...</p>
-          <RandomDescription></RandomDescription>
+          <RandomDescription pokemonDescription={pokemons.descrizione}></RandomDescription>
         </div>
       </div>
 
@@ -55,12 +63,12 @@ export default function Home() {
 
           {/* Pokédex Home */}
 
-          <div className='homePokedex mt-10 mb-10'>
+          <div className='homePokedex mt-10 mb-10 animation'>
             <p className='text-[20px] font-semibold mb-4 text-center'>Dai un'occhiata a questi Pokémon...</p>
             <div className='flex flex-wrap justify-center lg:justify-between md:px-28 xl:px-0'>
               {getRandomPokemon().map((pokemon, index) => (
                 <div className="w-full sm:w-1/2 lg:w-1/2 xl:w-1/4 mb-10" key={index}>
-                  <Card pokemonName={pokemon.nome} pokemonID={pokemon.id} pokemonType1={pokemon.tipo1} pokemonType2={pokemon.tipo2} pokemonGen={pokemon.generazione}></Card>
+                  <Card pokemonName={pokemon.nome} pokemonID={pokemon.id} pokemonType1={pokemon.tipo1} pokemonType2={pokemon.tipo2} pokemonGen={pokemon.generazione} pokemonImage={`${urlInit}${pokemon.immagine}`}></Card>
                 </div>
               ))}
             </div>
@@ -71,8 +79,10 @@ export default function Home() {
 
           {/* Team Home */}
 
-          <p className='text-[20px] font-semibold mb-4 text-center'>Dai un'occhiata ai tuoi Team!</p>
-          <Team></Team>
+          <div className='animation'>
+            <p className='text-[20px] font-semibold mb-4 text-center'>Dai un'occhiata ai tuoi Team!</p>
+            <Team></Team>
+          </div>
 
           <div className='buttonSite w-[140px] mx-auto rounded text-center mb-10'>
             <NavLink to="/teams" className='block'>Vai ai team</NavLink>

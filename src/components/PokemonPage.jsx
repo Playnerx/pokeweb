@@ -78,31 +78,17 @@ export default function PokemonPage() {
         }
     };
 
+    let pkmnNext = parseInt(id) + 1;
+
+    let urlInit = 'http://localhost:8000/';
+
     return (
         <>
-            <div className='w-full h-[50px] flex justify-between mt-10 mb-10'>
-                <a href="#" className='bg-[black] w-[45%] h-full flex justify-end items-center pr-[100px] block'>
-                    <img className='w-[12px] mr-6' src={iconLeftArrow} alt="Left Arrow" />
-                    <div className='flex'>
-                        <p className='font-semibold text-[20px] text-[gold] mr-5'>N°0151</p>
-                        <span className='font-semibold text-[20px] text-white'>Mew</span>
-                    </div>
-                </a>
-                <a href="#" className='bg-[black] w-[45%] h-full flex justify-start items-center pl-[100px] block'>
-                    <div className='flex'>
-                        <span className='font-semibold text-[20px] text-white'>Ivysaur</span>
-                        <p className='font-semibold text-[20px] text-[gold] ml-5'>N°0002</p>
-                    </div>
-                    <img className='w-[12px] ml-6' src={iconRightArrow} alt="Right Arrow" />
-                </a>
-            </div>
-
-            {/* -- */}
 
             <div className='w-full flex justify-center'>
                 <div className='w-[1000px] h-[100%] mx-auto text-center'>
 
-                    <div className='relative buttonActions w-[180px] rounded flex justify-center items-center mb-5'>
+                    <div className='relative buttonActions w-[180px] rounded flex justify-center items-center mb-5 mt-10'>
                         <a href='#' className='block ml-4 px-3 py-2 text-white text-[16px] font-semibold'>Torna indietro</a>
                         <img className='absolute left-0 w-[12px] ml-4' src={iconLeftArrow} alt="Icon Random" />
                     </div>
@@ -117,7 +103,7 @@ export default function PokemonPage() {
                     <div className='w-100 mx-auto mb-8'>
                         <div className='bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] border-b-[2px]  w-full h-[350px] rounded-t-[40px] flex justify-center items-center'>
                             <div className=''>
-                                <img className="mx-auto w-[320px] pixelated" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/491.png" alt="Bulbasaur" />
+                                <img className="mx-auto w-[320px] pixelated" src={`${urlInit}${pkmnInfo.immagine}`} alt="Bulbasaur" />
                             </div>
                         </div>
                         <div className='w-full h-[100px] bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] rounded-b-[40px] flex justify-center items-center flex-col'>
@@ -168,14 +154,14 @@ export default function PokemonPage() {
                             </div>
                         </div>
 
-                        <div className='flex justify-center mb-6'>
+                        <div className='flex justify-center mb-4'>
                             <div className='w-[50%]'>
                                 <p className='text-center mb-0 text-[18px] font-semibold'>Categoria</p>
                                 <p className='text-center'>Pokémon {pkmnInfo.categoria}</p>
                             </div>
                             <div className='w-[50%]'>
                                 <p className='text-center mb-0 text-[18px] font-semibold'>Gruppo Uova</p>
-                                <p className='text-center'>Mostro, Erba</p>
+                                <p className='text-center'>{pkmnInfo.gruppo_uova1}<br></br>{pkmnInfo.gruppo_uova2}</p>
                             </div>
                         </div>
 
@@ -183,9 +169,44 @@ export default function PokemonPage() {
 
                     {/* DEBOLEZZE */}
 
+
                     <p className='text-center mb-4 text-[23px] font-semibold'>Debolezze</p>
                     <div className='w-100 py-2 mx-auto flex justify-center items-center bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] rounded-[12px] mb-8'>
-                        <p className=''>Fuoco Ghiaccio Volante Psico</p>
+                        {pkmnInfo.debolezza1 &&
+                            <div className={`${getTypeColor(pkmnInfo.debolezza1)} text-white font-semibold rounded-[4px] w-[90px] h-7 flex justify-center items-center me-2 mx-2`}>
+                                <p className=''>{pkmnInfo.debolezza1}</p>
+                            </div>
+                        }
+                        {pkmnInfo.debolezza2 &&
+                            <div className={`${getTypeColor(pkmnInfo.debolezza2)} text-white font-semibold rounded-[4px] w-[90px] h-7 flex justify-center items-center me-2 mx-2`}>
+                                <p className=''>{pkmnInfo.debolezza2}</p>
+                            </div>
+                        }
+                        {pkmnInfo.debolezza3 &&
+                            <div className={`${getTypeColor(pkmnInfo.debolezza3)} text-white font-semibold rounded-[4px] w-[90px] h-7 flex justify-center items-center me-2 mx-2`}>
+                                <p className=''>{pkmnInfo.debolezza3}</p>
+                            </div>
+                        }
+                        {pkmnInfo.debolezza4 &&
+                            <div className={`${getTypeColor(pkmnInfo.debolezza4)} text-white font-semibold rounded-[4px] w-[90px] h-7 flex justify-center items-center me-2 mx-2`}>
+                                <p className=''>{pkmnInfo.debolezza4}</p>
+                            </div>
+                        }
+                        {pkmnInfo.debolezza5 &&
+                            <div className={`${getTypeColor(pkmnInfo.debolezza5)} text-white font-semibold rounded-[4px] w-[90px] h-7 flex justify-center items-center me-2 mx-2`}>
+                                <p className=''>{pkmnInfo.debolezza5}</p>
+                            </div>
+                        }
+                        {pkmnInfo.debolezza6 &&
+                            <div className={`${getTypeColor(pkmnInfo.debolezza6)} text-white font-semibold rounded-[4px] w-[90px] h-7 flex justify-center items-center me-2 mx-2`}>
+                                <p className=''>{pkmnInfo.debolezza6}</p>
+                            </div>
+                        }
+                        {pkmnInfo.debolezza7 &&
+                            <div className={`${getTypeColor(pkmnInfo.debolezza7)} text-white font-semibold rounded-[4px] w-[90px] h-7 flex justify-center items-center me-2 mx-2`}>
+                                <p className=''>{pkmnInfo.debolezza7}</p>
+                            </div>
+                        }
                     </div>
 
                     {/* STATISTICHE */}
@@ -256,7 +277,7 @@ export default function PokemonPage() {
 
                     {/* LINEA EVOLUTIVA */}
 
-                    <div className='w-100 pb-10 mx-auto bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] rounded-[12px] mb-10'>
+                    {/* <div className='w-100 pb-10 mx-auto bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] rounded-[12px] mb-10'>
                         <p className='py-5 text-[30px] font-semibold'>Linea Evolutiva</p>
 
                         <div className='flex justify-between px-20'>
@@ -264,7 +285,7 @@ export default function PokemonPage() {
                             <Card></Card>
                             <Card></Card>
                         </div>
-                    </div>
+                    </div> */}
 
 
                 </div>
