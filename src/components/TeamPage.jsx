@@ -6,6 +6,8 @@ import iconLeftArrow from './assets/img/chevron-left-solid.png';
 export default function TeamPage() {
   return (
     <>
+
+    
       <div className='w-full flex justify-center'>
         <div className='w-[1000px] h-[100%] mx-auto'>
 
@@ -30,14 +32,10 @@ export default function TeamPage() {
             </div>
           </div>
 
-          {/* DEBOLEZZE */}
-
           <p className='text-center mb-4 text-[23px] font-semibold'>Debolezze</p>
           <div className='w-100 py-2 mx-auto flex justify-center items-center bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] rounded-[12px] mb-8'>
             <p className='px-8'>Elettro Erba</p>
           </div>
-
-          {/* SUPEREFFICACITA' */}
 
           <p className='text-center mb-4 text-[23px] font-semibold'>Superefficacità</p>
           <div className='w-100 py-2 mx-auto flex justify-center items-center bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] rounded-[12px] mb-8'>
@@ -45,6 +43,8 @@ export default function TeamPage() {
           </div>
         </div>
       </div>
+
+      
     </>
   )
 }

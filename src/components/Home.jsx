@@ -38,6 +38,8 @@ export default function Home() {
     return shuffledPokemons.slice(0, 4);
   }
 
+  console.log(userData) 
+  
   let urlInit = 'http://localhost:8000/';
 
   return (
@@ -52,7 +54,7 @@ export default function Home() {
       <div className="relative w-100 h-[350px] flex justify-center items-center wallpaperHome bg-center bg-cover animation-user">
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className='text-white text-center font-semibold relative'>
-          <p className="text-center text-[20px] sm:text-[30px] font-semibold mb-4">Bentornato/a, <span className="text-[#ACCD2B] border-b border-[#ACCD2B]">{userData?.user?.username}</span>!</p>
+          <p className="text-center text-[20px] sm:text-[30px] font-semibold mb-4">Bentornato/a, <span className="text-[#F7D05E] border-b border-[#F7D05E]">{userData?.user?.username}</span>!</p>
           <p className="mb-4">Ecco il tuo indovinello di oggi...</p>
           <RandomDescription pokemonDescription={pokemons.descrizione}></RandomDescription>
         </div>

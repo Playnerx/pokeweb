@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import iconSearch from '../components/assets/img/black-search-icon-png-8.jpg';
 import iconRandom from '../components/assets/img/dice-solid.png';
+import iconBottom from '../components/assets/img/chevron-down-solid.png';
 import switchIcon from '../components/assets/img/switch.png';
 import Card from './utilities/Cards/Card';
 import LoadingPokeball from './utilities/Loadings/LoadingPokeball';
 import LoadingPage from './utilities/Loadings/LoadingPage';
 
-
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-
 
 const Pokedex = () => {
     const [pokemons, setPokemons] = useState([]);
@@ -17,6 +16,7 @@ const Pokedex = () => {
     const [loading, setLoading] = useState(false);
     const [loadingPage, setLoadingPage] = useState(true);
     const [sortType, setSortType] = useState('none');
+    const [scrollY, setScrollY] = useState(0);
 
     useEffect(() => {
         fetch('http://localhost:8000/api/pokemon')
@@ -31,11 +31,21 @@ const Pokedex = () => {
                 console.log(data);
                 setTimeout(() => {
                     setLoadingPage(false);
-                  }, 500);
+                }, 500);
             })
             .catch(error => {
                 console.log('Si è verificato un errore:', error);
             });
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     // Aggiungi 9 al numero di Pokémon visibili
@@ -71,6 +81,13 @@ const Pokedex = () => {
         setSortType(type);
     };
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
     let urlInit = 'http://localhost:8000/';
 
     return (
@@ -102,7 +119,7 @@ const Pokedex = () => {
                     {/* PULSANTI */}
 
                     <div className='w-full md:w-auto flex flex-col md:flex-row justify-center items-center mt-8'>
-                        <div className='relative buttonActions w-[220px] md:w-[220px] mx-auto mb-4 md:mb-0 rounded flex items-center'>
+                        <div className='relative buttonActions w-[220px] md:w-[250px] mx-auto mb-4 md:mb-0 rounded flex items-center justify-center'>
                             <button onClick={randomPokemons} className='block px-3 py-2 text-white text-[16px] font-semibold'>
                                 <div className="flex items-center">
                                     Generatore casuale
@@ -111,7 +128,7 @@ const Pokedex = () => {
                             </button>
                         </div>
 
-                        <div className="relative buttonActions w-[250px] md:w-[220px] mx-auto mb-4 md:mb-0 rounded">
+                        <div className="relative buttonActions w-[220px] md:w-[250px] mx-auto mb-4 md:mb-0 rounded">
                             <div className="flex items-center">
                                 <button className="flex items-center mx-auto px-3 py-2 text-white text-[16px] font-semibold" onClick={() => sortPokemons(sortType === 'asc' ? 'desc' : 'asc')}>
                                     Ordine {sortType === 'asc' ? 'Crescente' : 'Decrescente'}
@@ -135,6 +152,16 @@ const Pokedex = () => {
                             {!searchValue && <button onClick={loadMorePokemons} className='buttonSite'>Carica altro</button>}
                         </div>
                     </div>
+
+                    {/* Scroll to Top Button */}
+                    {scrollY > 100 && (
+                        <button
+                            onClick={scrollToTop}
+                            className="buttonSite2 w-[50px] fixed bottom-5 right-8 text-white font-bold py-2 px-3 rounded-[10px] shadow"
+                        >
+                            <img className='w-[30px]' src={iconBottom} alt="Bottom Icon" />
+                        </button>
+                    )}
 
                 </div>
             </div>

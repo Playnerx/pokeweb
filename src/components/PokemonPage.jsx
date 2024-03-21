@@ -1,6 +1,6 @@
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import iconLeftArrow from './assets/img/chevron-left-solid.png';
-import iconRightArrow from './assets/img/chevron-right-solid.png';
+import iconBottom from '../components/assets/img/chevron-down-solid.png';
 import Card from './utilities/Cards/Card';
 import StatsBar from './utilities/StatsBar';
 import { useEffect, useState } from 'react';
@@ -13,6 +13,7 @@ export default function PokemonPage() {
 
     const [pkmnInfo, setpkmnInfo] = useState([]);
     const [count, setCount] = useState(0);
+    const [scrollY, setScrollY] = useState(0);
 
     useEffect(() => {
         if (count < 1) {
@@ -78,7 +79,23 @@ export default function PokemonPage() {
         }
     };
 
-    let pkmnNext = parseInt(id) + 1;
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
 
     let urlInit = 'http://localhost:8000/';
 
@@ -89,7 +106,7 @@ export default function PokemonPage() {
                 <div className='w-[1000px] h-[100%] mx-auto text-center'>
 
                     <div className='relative buttonActions w-[180px] rounded flex justify-center items-center mb-5 mt-10'>
-                        <a href='#' className='block ml-4 px-3 py-2 text-white text-[16px] font-semibold'>Torna indietro</a>
+                        <NavLink to="/pokedex"className='block ml-4 px-3 py-2 text-white text-[16px] font-semibold'>Torna indietro</NavLink>
                         <img className='absolute left-0 w-[12px] ml-4' src={iconLeftArrow} alt="Icon Random" />
                     </div>
 
@@ -274,6 +291,16 @@ export default function PokemonPage() {
                             />
                         </div>
                     </div>
+
+                    {/* Scroll to Top Button */}
+                    {scrollY > 100 && (
+                        <button
+                            onClick={scrollToTop}
+                            className="buttonSite2 w-[50px] fixed bottom-5 right-8 text-white font-bold py-2 px-3 rounded-[10px] shadow"
+                        >
+                            <img className='w-[30px]' src={iconBottom} alt="Bottom Icon" />
+                        </button>
+                    )}
 
                     {/* LINEA EVOLUTIVA */}
 
