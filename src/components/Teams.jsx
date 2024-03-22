@@ -1,4 +1,5 @@
 import React from 'react';
+import iconCoding from '../components/assets/img/terminal-solid.png';
 
 export default function TeamPage() {
   return (
@@ -39,8 +40,9 @@ export default function TeamPage() {
         </div>
       </div> */}
 
-      <div className="flex justify-center items-center h-screen">
-        <h1 className="text-4xl font-bold text-gray-800">Lavori in corso</h1>
+      <div className="flex justify-center items-center h-[700px] animation">
+        <img src={iconCoding} alt="Coding Icon" className='w-[45px] mr-5' />
+        <h1 className="text-[40px] font-bold text-[black] customFont">Coming Soon...</h1>
       </div>
     </>
   );

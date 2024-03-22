@@ -13,6 +13,10 @@ function CambiaUsername() {
     const { userData, fetcher, setLogout } = useAuth();
     const [loading, setLoading] = useState(true);
 
+    setTimeout(() => {
+        setLoading(false);
+    }, 1000);
+
     const onSubmit = (dataUsername) => {
 
         fetcher(`${BACKEND_URL}/users/${userData.user.id}`,
@@ -39,9 +43,6 @@ function CambiaUsername() {
                     }
                 });
             }
-            setTimeout(() => {
-                setLoading(false);
-            }, 500);
         })
         .catch((err) => {
             console.log(err);
@@ -51,15 +52,15 @@ function CambiaUsername() {
     return (
         <>
         {loading && <LoadingPage />}
-            <div className="relative w-full h-[180px] flex justify-center items-center wallpaperPokedex bg-center bg-cover animation-user">
+            <div className="relative w-full h-[180px] flex justify-center items-center wallpaper4 bg-center bg-cover animation-user">
                 <div className="absolute inset-0 bg-black opacity-50"></div>
                 <div className="text-white text-center font-semibold relative">
-                    <p className="px-15 mb-4 text-[30px] md:text-[40px] mb-5">Cambia il tuo Username</p>
+                    <p className="px-15 mb-4 text-[30px] md:text-[40px] mb-5 customFont">Cambia il tuo Username</p>
                 </div>
             </div>
 
-            <div className="w-full flex justify-center">
-                <div className='w-full md:w-[1000px] mx-auto h-[500px] sm:h[20px]'>
+            <div className="w-full flex justify-center animation2">
+                <div className='w-full md:w-[1000px] mx-auto h-[500px]'>
 
                     <div className="bg-white shadow-[0_5px_10px_rgba(0,0,0,.25)] border-b-[2px] w-[100%] md:w-[800px] h-[250px] rounded-[12px] mb-8 mx-auto flex justify-center items-center mt-[90px]">
                         <div className='inputFieldChange text-center'>

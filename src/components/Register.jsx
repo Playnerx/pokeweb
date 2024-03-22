@@ -50,9 +50,7 @@ export default function Register() {
                 } else {
                     Object.keys(data.errors).forEach((field) => {
                         if (data.errors[field]) {
-                            setError(field, {
-                                types: getErrorTypes(data.errors[field]),
-                            });
+                            setError(field, { type: 'custom', message: data.errors[field] });
                         }
                     });
                 }
@@ -188,6 +186,7 @@ export default function Register() {
                                     >
                                         <p className="text-sm text-red-600 dark:text-red-500">
                                             {error.message}
+                                            
                                         </p>
                                     </div>
                                 ))}

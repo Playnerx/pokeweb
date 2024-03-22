@@ -6,6 +6,12 @@ body {
   background-image: url("./components/assets/img/pattern-white.jpg");
   background-size: contain;
 }
+.customFont {
+  font-family: 'Shantell Sans', sans-serif;
+}
+.customFont2 {
+  font-family: 'Noto Serif', sans-serif;
+}
 a {
   color: black;
   text-decoration: none;
@@ -27,6 +33,18 @@ p {
 
 .pixelated {
   image-rendering: pixelated;
+}
+.wallpaper2 {
+  background-image: url(components/assets/img/pokemonlandscape4.jpg);
+}
+.wallpaper3 {
+  background-image: url(components/assets/img/pokemonlandscape3.jpg);
+}
+.wallpaper4 {
+  background-image: url(components/assets/img/pokemonlandscape5.jpg);
+}
+.background {
+  background-image: url(components/assets/img/background.jpg);
 }
 .buttonSite {
   background-color: #b70909;
@@ -356,7 +374,7 @@ p {
 
 /* POKEDEX PAGE */
 
-.wallpaperPokedex {
+.wallpaper1 {
     background-image: url(components/assets/img/pokemonlandscape.jpg);
 }
 
@@ -383,9 +401,43 @@ p {
   }
 }
 
+.animation2 {
+  opacity: 0;
+  animation: animation2 1.5s ease-in-out forwards;
+  animation-delay: 2s;
+}
+
+@keyframes animation2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animation3 {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: animation3 1.5s ease-in-out forwards;
+  animation-delay: 2.5s;
+}
+
+@keyframes animation3 {
+  from {
+      opacity: 0;
+      transform: translateY(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+
 .animation-user {
   opacity: 0;
-  transform: translateY(-50px);
+  transform: translateY(30px);
   animation: animation-user 1.2s ease-in-out forwards;
   animation-delay: 1s;
 }
@@ -393,7 +445,7 @@ p {
 @keyframes animation-user {
   from {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;

@@ -54,7 +54,7 @@ export default function Home() {
       <div className="relative w-100 h-[350px] flex justify-center items-center wallpaperHome bg-center bg-cover animation-user">
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className='text-white text-center font-semibold relative'>
-          <p className="text-center text-[20px] sm:text-[30px] font-semibold mb-4">Bentornato/a, <span className="text-[#F7D05E] border-b border-[#F7D05E]">{userData?.user?.username}</span>!</p>
+          <p className="text-center text-[20px] sm:text-[30px] font-semibold mb-4 customFont">Bentornato/a, <span className="text-[#F7D05E] border-b border-[#F7D05E]">{userData?.user?.username}</span>!</p>
           <p className="mb-4">Ecco il tuo indovinello di oggi...</p>
           <RandomDescription pokemonDescription={pokemons.descrizione}></RandomDescription>
         </div>
@@ -65,8 +65,8 @@ export default function Home() {
 
           {/* Pokédex Home */}
 
-          <div className='homePokedex mt-10 mb-10 animation'>
-            <p className='text-[20px] font-semibold mb-4 text-center'>Dai un'occhiata a questi Pokémon...</p>
+          <div className='homePokedex mt-5 mb-10 animation2'>
+            <p className='sm:text-[30px] text-[22px] font-semibold mb-3 text-center customFont'>Dai un'occhiata a questi Pokémon...</p>
             <div className='flex flex-wrap justify-center lg:justify-between md:px-28 xl:px-0'>
               {getRandomPokemon().map((pokemon, index) => (
                 <div className="w-full sm:w-1/2 lg:w-1/2 xl:w-1/4 mb-10" key={index}>
@@ -82,7 +82,7 @@ export default function Home() {
           {/* Team Home */}
 
           <div className='animation'>
-            <p className='text-[20px] font-semibold mb-4 text-center'>Dai un'occhiata ai tuoi Team!</p>
+            <p className='sm:text-[30px] text-[22px] font-semibold mb-4 text-center customFont'>Crea il tuo team perfetto!</p>
             <Team></Team>
           </div>
 

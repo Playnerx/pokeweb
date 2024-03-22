@@ -49,8 +49,8 @@ export default function Card({ pokemonName, pokemonID, pokemonType1, pokemonType
   return (
     <NavLink to={`/pokemon/${pokemonID}`} className="block w-[230px] h-[300px] mx-auto">
       <div className="flex justify-between">
-        <p className="text-[#966B19] text-[15px] font-semibold ms-2">N° {pokemonID}</p>
-        <p className="text-[#966B19] text-[15px] font-semibold me-2">Gen. {pokemonGen}</p>
+        <p className="text-[#966B19] text-[15px] font-bold ms-2 customFont2">N° {pokemonID}</p>
+        <p className="text-[#966B19] text-[15px] font-bold me-2 customFont2">Gen. {pokemonGen}</p>
       </div>
       <div className='card w-[230px] h-[300px]'>
         <div className='topCard w-100 h-[200px] rounded-t-lg flex justify-center items-center'>

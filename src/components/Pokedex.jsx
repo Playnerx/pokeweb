@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import iconSearch from '../components/assets/img/black-search-icon-png-8.jpg';
 import iconRandom from '../components/assets/img/dice-solid.png';
-import iconBottom from '../components/assets/img/chevron-down-solid.png';
+import iconTop from '../components/assets/img/chevron-up-solid.png';
 import switchIcon from '../components/assets/img/switch.png';
 import Card from './utilities/Cards/Card';
 import LoadingPokeball from './utilities/Loadings/LoadingPokeball';
@@ -48,28 +48,28 @@ const Pokedex = () => {
         };
     }, []);
 
-    // Aggiungi 9 al numero di Pokémon visibili
+    // Pokémon visibili (9)
     const loadMorePokemons = () => {
         setVisiblePokemons(prevVisiblePokemons => prevVisiblePokemons + 9);
     };
 
-    // Funzione per filtrare i Pokémon in base al nome o all'ID
+    // Filtro pokémon in base a ID
     const filteredPokemons = pokemons.filter(pokemon_data =>
         pokemon_data.nome.toLowerCase().includes(searchValue.toLowerCase()) ||
         pokemon_data.id.toString().includes(searchValue)
     );
 
-    // Funzione per randomizzare l'elenco
+    // Random pokémon
     const randomPokemons = () => {
-        setLoading(true); // Attiva l'animazione di caricamento
+        setLoading(true);
         setTimeout(() => {
             const randomPokemons = [...pokemons].sort(() => Math.random() - 0.5);
             setPokemons(randomPokemons);
-            setLoading(false); // Disattiva l'animazione di caricamento dopo il ritardo
-        }, 1000); // Cambia il valore a seconda di quanto tempo vuoi mantenere l'animazione
+            setLoading(false);
+        }, 1000);
     };
 
-    // Funzione per ordinare i Pokémon in base all'ID
+    // Ordinare pokémon in base a ID
     const sortPokemons = (type) => {
         let sortedPokemons = [...pokemons];
         if (type === 'desc') {
@@ -94,19 +94,19 @@ const Pokedex = () => {
         <>
             {loadingPage && <LoadingPage />}
             {loading && <LoadingPokeball />}
-            <div className="relative w-full h-[160px] flex justify-center items-center wallpaperPokedex bg-center bg-cover animation-user">
+            <div className="relative w-full h-[160px] flex justify-center items-center wallpaper1 bg-center bg-cover animation-user">
                 <div className="absolute inset-0 bg-black opacity-50"></div>
                 <div className="text-white text-center font-semibold relative">
-                    <p className="px-15 mb-4 text-sm md:text-base">Cerca un Pokémon per nome o per numero del Pokédex.</p>
+                    <p className="px-15 mb-4 text-sm md:text-[20px] customFont">Cerca un Pokémon per nome o per numero del Pokédex.</p>
                     <div className='mx-auto bg-white rounded-[30px] md:w-[500px] w-full py-1 flex items-center pl-4 pr-14'>
                         <input
-                            className='text-[12px] sm:text-[16px] outline-none focus:outline-none text-[black] italic w-full bg-transparent placeholder-[12px] md:placeholder-[16px] text-left'
+                            className='text-[12px] sm:text-[15px] md-text-[16px] outline-none focus:outline-none text-[black] w-full bg-transparent placeholder-[12px] md:placeholder-[16px] text-left'
                             type='text'
                             placeholder='Inserisci il nome o il numero del Pokémon'
                             value={searchValue}
-                            onChange={(e) => setSearchValue(e.target.value)} // Aggiornamento dello stato per il valore di ricerca
+                            onChange={(e) => setSearchValue(e.target.value)}
                         />
-                        <img className='w-[50px] md:w-[70px] absolute right-0 mr-0' src={iconSearch} alt="Icon Search" />
+                        <img className='w-[55px] md:w-[66px] absolute right-0 md:right-5 mr-0' src={iconSearch} alt="Icon Search" />
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@ const Pokedex = () => {
 
                     {/* PULSANTI */}
 
-                    <div className='w-full md:w-auto flex flex-col md:flex-row justify-center items-center mt-8'>
+                    <div className='w-full md:w-auto flex flex-col md:flex-row justify-center items-center mt-8 animation'>
                         <div className='relative buttonActions w-[220px] md:w-[250px] mx-auto mb-4 md:mb-0 rounded flex items-center justify-center'>
                             <button onClick={randomPokemons} className='block px-3 py-2 text-white text-[16px] font-semibold'>
                                 <div className="flex items-center">
@@ -140,10 +140,10 @@ const Pokedex = () => {
 
                     {/* POKEMON */}
 
-                    <div className='homePokedex mt-12 mb-10'>
+                    <div className='homePokedex mt-3 sm:mt-10 mb-10 animation2'>
                         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4'>
                             {filteredPokemons.slice(0, visiblePokemons).map((pokemon) => (
-                                <div className="mb-10" key={pokemon.id}>
+                                <div className="mb-16" key={pokemon.id}>
                                     <Card pokemonName={pokemon.nome} pokemonID={pokemon.id} pokemonType1={pokemon.tipo1} pokemonType2={pokemon.tipo2} pokemonGen={pokemon.generazione} pokemonImage={`${urlInit}${pokemon.immagine}`} />
                                 </div>
                             ))}
@@ -153,13 +153,12 @@ const Pokedex = () => {
                         </div>
                     </div>
 
-                    {/* Scroll to Top Button */}
                     {scrollY > 100 && (
                         <button
                             onClick={scrollToTop}
-                            className="buttonSite2 w-[50px] fixed bottom-5 right-8 text-white font-bold py-2 px-3 rounded-[10px] shadow"
+                            className="buttonSite2 w-[50px] fixed bottom-5 right-8 text-white font-bold py-2 px-3 rounded-[10px] shadow hidden md:block"
                         >
-                            <img className='w-[30px]' src={iconBottom} alt="Bottom Icon" />
+                            <img className='w-[30px]' src={iconTop} alt="Bottom Icon" />
                         </button>
                     )}
 

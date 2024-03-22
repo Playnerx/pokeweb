@@ -71,7 +71,7 @@ export default function RandomDescription() {
     <>
       {randomDescription && (
         <>
-          <p className='text-[15px] sm:text-[16px] px-4 italic'>"{randomDescription.descrizione}"</p>
+          <p className='text-[15px] sm:text-[16px] px-4 italic text-[#E8DAA4]'>"{randomDescription.descrizione}"</p>
           <p className="mt-4">Di che Pokémon sto parlando?</p>
           <div className='inputFieldRandom w-[200px] mx-auto'>
             <input className="text-center" type="text" value={userAnswer} onChange={handleUserAnswer} onKeyPress={handleKeyPress} />
