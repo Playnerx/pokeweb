@@ -1,8 +1,15 @@
-# React + Vite
+# PokéWeb App (Front End)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Applicazione Web su Pokémon, dotata di un sistema di Login e Registrazione dell'utente con scambio dati dal Database.
+Lo sviluppo dell'app comprende:
+- Lato Frontend;
+- Lato Backend;
+- Database.
 
-Currently, two official plugins are available:
+Tecnologie utilizzate:
+- React;
+- Laravel;
+- MySQL.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Stato: Sviluppo in corso.
+Tempo impiegato: 1 mese.
